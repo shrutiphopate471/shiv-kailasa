@@ -26,7 +26,7 @@ if (!$error && DB_ENABLED) {
         $stmt->execute();
     } catch (Throwable $e) {
         error_log($e->getMessage());
-        $error = 'DB error: ' . $e->getMessage();
+        $error = 'We could not save your enquiry. Please try again.';
     }
 }
 
