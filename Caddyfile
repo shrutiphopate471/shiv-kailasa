@@ -1,0 +1,12 @@
+:{$PORT:80} {
+    root * /app
+    encode zstd gzip
+
+    @private path /database/* /Dockerfile.vercel /Caddyfile /vercel.json
+    handle @private {
+        respond 404
+    }
+    handle {
+        php_server
+    }
+}
