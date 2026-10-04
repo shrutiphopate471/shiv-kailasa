@@ -5,39 +5,101 @@ $old = $flash['old'] ?? [];
 require __DIR__ . '/header.php';
 ?>
 <!-- Hero -->
-<section class="hero" id="home" style="padding-bottom:40px"><div class="wrap">
-  <div class="grid">
-    <div>
-      <div class="eyebrow">Opp. AIIMS &amp; IIM · MIHAN, Nagpur</div>
-      <h1><span>The Peak of</span><em>Happy Living</em></h1>
-      <p class="sub">Two and three bedroom residences within thirty private acres, where more than a thousand families already call home.</p>
-      <div class="chips"><span>2 &amp; 3 BHK</span><span>50+ Amenities</span><span>ISO 9001:2015</span><span>Since 2004</span></div>
-    </div>
-    <form class="card" method="post" action="process-enquiry.php" id="f1" novalidate>
-      <div class="eyebrow mute">Private enquiry</div>
-      <h3>Receive the <em style="color:#e9e2d3">private</em> portfolio</h3>
-      <p class="note">Floor plans, availability and pricing, shared personally by a senior adviser.</p>
-      <?php if ($flash && $flash['form'] === 'portfolio'): ?><div class="alert error"><?= htmlspecialchars($flash['msg']) ?></div><?php endif; ?>
-      <input type="hidden" name="form_type" value="portfolio">
-      <div class="field"><label>Name</label><input name="name" placeholder="Your full name" value="<?= htmlspecialchars($old['name'] ?? '') ?>"><div class="err">Please enter your name.</div></div>
-      <div class="field"><label>Mobile</label><input name="phone" type="tel" placeholder="+91" value="<?= htmlspecialchars($old['phone'] ?? '') ?>"><div class="err">Enter a valid mobile number.</div></div>
-      <div class="field"><label>Residence</label><select name="configuration" id="cfg"><option>Two Bedroom Residence</option><option selected>Three Bedroom Residence</option></select></div>
-      <div style="margin-top:26px"><button class="btn block">Request the portfolio</button></div>
-      <div class="fine">Strictly confidential. Shared only with you.</div>
-    </form>
-  </div>
-  <div class="stats" id="stats">
-    <div><b data-to="30" data-suf="">0</b><span>Private acres</span></div>
-    <div><b data-to="13" data-suf="L+">0</b><span>Sq. ft. township</span></div>
-    <div><b data-to="2400" data-suf="+">0</b><span>Residences</span></div>
-    <div><b data-to="1000" data-suf="+">0</b><span>Families in residence</span></div>
-    <div><b data-to="50" data-suf="+">0</b><span>Club amenities</span></div>
-  </div>
-</div><div class="scroll"></div></section>
+<section class="hero" id="home">
+    <!-- Background video -->
+<!-- If index.html is in the root and the video is in /videos -->
+<video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata"
+       poster="assets/images/IMG_6637.JPG.jpg"
+       data-desktop="assets/images/IMG_4588.MP4"
+       data-mobile="assets/images/IMG_7096.MP4"></video>
 
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Opp. AIIMS &amp; IIM · MIHAN, Nagpur</div>
+        <h1><span>The Peak of</span><em>Happy Living</em></h1>
+        <p class="sub">Two and three bedroom residences within thirty private acres, where more than a thousand families already call home.</p>
+        <div class="chips">
+          <span>2 &amp; 3 BHK</span>
+          <span>50+ Amenities</span>
+          <span>ISO 9001:2015</span>
+          <span>Since 2004</span>
+        </div>
+      </div>
+
+      <form class="card" method="post" action="process-enquiry.php" novalidate>
+        <div class="eyebrow mute">Private enquiry</div>
+        <h3>Receive the <em>private</em> portfolio</h3>
+        <p class="note">Floor plans, availability and pricing, shared personally by a senior adviser.</p>
+        <input type="hidden" name="form_type" value="portfolio">
+
+        <div class="field">
+          <label>Name</label>
+          <input name="name" placeholder="Your full name">
+          <div class="err">Please enter your name.</div>
+        </div>
+        <div class="field">
+          <label>Mobile</label>
+         <input name="phone" type="text" placeholder="10-digit mobile number"
+       inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" autocomplete="tel-national">
+          <div class="err">Enter a valid mobile number.</div>
+        </div>
+        <div class="field">
+          <label>Residence</label>
+          <select name="configuration">
+            <option>Two Bedroom Residence</option>
+            <option selected>Three Bedroom Residence</option>
+          </select>
+        </div>
+
+        <div style="margin-top:26px"><button class="btn block">Request the portfolio</button></div>
+        <div class="fine">Strictly confidential. Shared only with you.</div>
+      </form>
+    </div>
+  
+
+  </div>
+
+  <div class="scroll"></div>
+</section>
+
+<section class="black-box p-0">
+    <div class="container">
+
+        <div class="stats">
+
+            <div>
+                <b data-to="30">0</b>
+                <span>Private acres</span>
+            </div>
+
+            <div>
+                <b data-to="13" data-suf="L+">0</b>
+                <span>Sq. ft. township</span>
+            </div>
+
+            <div>
+                <b data-to="2400" data-suf="+">0</b>
+                <span>Residences</span>
+            </div>
+
+            <div>
+                <b data-to="1000" data-suf="+">0</b>
+                <span>Families in residence</span>
+            </div>
+
+            <div>
+                <b data-to="50" data-suf="+">0</b>
+                <span>Club amenities</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 <!-- About -->
-<section class="light about" id="about"><div class="wrap"><div class="grid">
-  <div class="ph reveal-left"><img src="assets/images/hero/about.jpg" alt="The central green" onerror="this.style.display='none'"><span class="tag">The central green</span></div>
+<section class="light about section-lg" id="about"><div class="wrap"><div class="grid">
+  <div class="ph reveal-left"><img src="assets/images/IMG_6628.JPG.jpg" alt="The central green" onerror="this.style.display='none'"><span class="tag">The central green</span></div>
   <div class="reveal-right">
     <div class="eyebrow">I &nbsp; The estate</div>
     <h2>A township <em>beyond comparison</em></h2>
@@ -51,15 +113,15 @@ require __DIR__ . '/header.php';
 </div></div></section>
 
 <!-- Residences -->
-<section class="light2" id="residences"><div class="wrap">
+<section class="light2 section-lg" id="residences"><div class="wrap">
   <div class="eyebrow mute" style="color:var(--gold)">II &nbsp; The residences</div>
   <div class="head" style="color:var(--ink)"><h2 style="color:var(--ink)">Homes <em>crafted for life</em></h2><p style="color:#6f695d">Light-filled plans with generous living rooms, private bedrooms and views across open greens.</p></div>
   <div class="res">
-    <article class="rcard reveal"><div class="ph" data-gal="r2"><img src="assets/images/residences/2bhk.jpg" alt="2 BHK" onerror="this.style.display='none'"></div>
+    <article class="rcard reveal"><div class="ph" data-gal="r2"><img src="assets/images/IMG_6637.JPG.jpg" alt="2 BHK" onerror="this.style.display='none'"></div>
       <div class="rbody"><div class="eyebrow">The signature</div><h3>Two Bedroom Residence</h3><p>Composed living and dining with two private bedrooms — a first home or a considered investment.</p>
       <div class="facts"><div><small>Carpet area</small><b>[— sq. ft.]</b></div><div><small>Bedrooms</small><b>Two</b></div><div><small>Price</small><b>On request</b></div></div>
       <div class="acts"><button class="btn ghost" data-gal="r2">View photos</button><a href="#contact" class="btn" data-cfg="Two Bedroom Residence">Enquire now</a></div></div></article>
-    <article class="rcard reveal"><div class="ph" data-gal="r3"><img src="assets/images/residences/3bhk.jpg" alt="3 BHK" onerror="this.style.display='none'"><span class="tag" style="background:#2a2620">Most sought after</span></div>
+    <article class="rcard reveal"><div class="ph" data-gal="r3"><img src="assets/images/IMG_6638.JPGnew6.jpg" alt="3 BHK" onerror="this.style.display='none'"><span class="tag" style="background:#2a2620">Most sought after</span></div>
       <div class="rbody"><div class="eyebrow">The grand</div><h3>Three Bedroom Residence</h3><p>Grand living spaces and three bedrooms, with garden-facing homes for those who want the view.</p>
       <div class="facts"><div><small>Carpet area</small><b>[— sq. ft.]</b></div><div><small>Bedrooms</small><b>Three</b></div><div><small>Price</small><b>On request</b></div></div>
       <div class="acts"><button class="btn ghost" data-gal="r3">View photos</button><a href="#contact" class="btn" data-cfg="Three Bedroom Residence">Enquire now</a></div></div></article>
@@ -68,7 +130,7 @@ require __DIR__ . '/header.php';
 </div></section>
 
 <!-- Location -->
-<section class="loc" id="location"><div class="wrap">
+<section class="loc section-lg" id="location"><div class="wrap">
   <div class="eyebrow mute">III &nbsp; The address</div>
   <div class="head"><h2>The heart of <em>MIHAN</em></h2><p>Neighbours to AIIMS and IIM — minutes from the MIHAN SEZ — an address of standing, and of enduring demand.</p></div>
   <div class="dist">
@@ -85,14 +147,26 @@ require __DIR__ . '/header.php';
 </div></section>
 
 <!-- Amenities -->
-<section class="am" id="amenities"><div class="wrap">
+<section class="am section-lg" id="amenities"><div class="wrap">
   <div class="eyebrow mute">IV &nbsp; The club</div>
   <div class="head"><h2>50+ amenities, <em>and more</em></h2><p>Quietly woven into the estate — for wellness, for leisure and for everyday ease.</p></div>
-  <div class="feat"><div><h3>The Pools</h3><small>For men, women &amp; children</small></div><div><h3>The Clubhouse</h3><small>Multipurpose hall &amp; indoor games</small></div></div>
-  <div class="filters" id="af">
-    <button class="on" data-f="all">All</button><button data-f="wellness">Wellness &amp; Fitness</button><button data-f="sports">Sports &amp; Recreation</button>
-    <button data-f="nature">Nature &amp; Landscape</button><button data-f="security">Security &amp; Infrastructure</button><button data-f="daily">Everyday Convenience</button>
+  <div class="feat">
+  <div>
+    <img src="assets/images/pool.jpg" alt="The Pools">
+    <div class="feat-text">
+      <h3>The Pools</h3>
+      <small>For men, women &amp; children</small>
+    </div>
   </div>
+  <div>
+    <img src="assets/images/gym.jpg" alt="The Gym">
+    <div class="feat-text">
+      <h3>The Gym</h3>
+      <small>Modern fitness center &amp; workout facilities</small>
+    </div>
+  </div>
+</div>
+  
   <div class="amgrid" id="ag">
     <div class="am-item" data-c="wellness"><h4>Wellness</h4><p>Gymnasium · Yoga &amp; meditation · Jogging &amp; cycling track · Senior lounge</p></div>
     <div class="am-item" data-c="sports"><h4>Leisure</h4><p>Clubhouse · Cricket pitch · Table tennis · Billiards · Chess &amp; carrom</p></div>
@@ -105,16 +179,16 @@ require __DIR__ . '/header.php';
   </div>
 </div></section>
 
-<!-- Gallery -->
-<section class="gal" id="gallery"><div class="wrap">
+<!-- Gallery
+<section class="gal section-lg" id="gallery"><div class="wrap">
   <div class="eyebrow">V &nbsp; The gallery</div>
   <div class="head" style="color:var(--ink)"><h2 style="color:var(--ink)">Life at <em>Shiv Kailasa</em></h2><p style="color:#6f695d">A look across the estate — add your licensed photographs in the images folder.</p></div>
-  <div class="filters" id="gf"><button class="on" data-f="all">All</button><button data-f="exterior">Exterior</button><button data-f="interiors">Interiors</button><button data-f="amenities">Amenities</button><button data-f="landscape">Landscape</button></div>
+  
   <div class="ggrid" id="gg"></div>
-</div></section>
+</div></section> -->
 
 <!-- Developer + FAQ -->
-<section class="light dev"><div class="wrap"><div class="grid">
+<section class="light dev section-lg"><div class="wrap"><div class="grid">
   <div class="reveal">
     <div class="eyebrow">V &nbsp; The developer</div>
     <h2>Two decades of <em>building trust</em></h2>
@@ -124,17 +198,16 @@ require __DIR__ . '/header.php';
   <div class="reveal">
     <div class="eyebrow">VI &nbsp; Good to know</div>
     <div class="faq">
-      <details open><summary>Where exactly is Shiv Kailasa?</summary><p>Opposite AIIMS and IIM in MIHAN, Nagpur 441108, with direct access to Wardha Road.</p></details>
-      <details><summary>Which residences are available?</summary><p>Two and three bedroom residences. Availability is shared with the private portfolio.</p></details>
-      <details><summary>Are families already living here?</summary><p>Yes — more than a thousand families are already in residence.</p></details>
-      <details><summary>Why is pricing shared privately?</summary><p>Pricing varies by floor and view, so an adviser shares current availability with you directly.</p></details>
-      <details><summary>When can I visit?</summary><p>Viewings are by appointment, every day, at a time of your choosing.</p></details>
+      <details name="faq" open><summary>Where exactly is Shiv Kailasa?</summary><p>Opposite AIIMS and IIM in MIHAN, Nagpur 441108, with direct access to Wardha Road.</p></details>
+      <details name="faq"><summary>Which residences are available?</summary><p>Two and three bedroom residences. Availability is shared with the private portfolio.</p></details>
+      <details name="faq"><summary>Are families already living here?</summary><p>Yes — more than a thousand families are already in residence.</p></details>
+      <details name="faq"><summary>Why is pricing shared privately?</summary><p>Pricing varies by floor and view, so an adviser shares current availability with you directly.</p></details>
+      <details name="faq"><summary>When can I visit?</summary><p>Viewings are by appointment, every day, at a time of your choosing.</p></details>
     </div>
   </div>
 </div></div></section>
-
 <!-- Appointment -->
-<section class="appt" id="contact"><div class="wrap"><div class="grid">
+<section class="appt section-lg" id="contact"><div class="wrap"><div class="grid">
   <div>
     <div class="eyebrow mute">VII &nbsp; Appointment</div>
     <h2>Come home to <em>Shiv Kailasa</em></h2>
@@ -152,7 +225,8 @@ require __DIR__ . '/header.php';
     <?php if ($flash && $flash['form'] === 'viewing'): ?><div class="alert error"><?= htmlspecialchars($flash['msg']) ?></div><?php endif; ?>
     <input type="hidden" name="form_type" value="viewing">
     <div class="field"><label>Name</label><input name="name" placeholder="Your full name"><div class="err">Please enter your name.</div></div>
-    <div class="field"><label>Mobile</label><input name="phone" type="tel" placeholder="+91"><div class="err">Enter a valid mobile number.</div></div>
+    <div class="field"><label>Mobile</label><input name="phone" type="tel" placeholder="10-digit mobile number"
+           inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="+91"><div class="err">Enter a valid mobile number.</div></div>
     <div class="field"><label>Email (optional)</label><input name="email" type="email" placeholder="you@example.com"><div class="err">Enter a valid email address.</div></div>
     <div class="field"><label>Preferred configuration</label><select name="configuration" id="cfg2"><option value="">No preference</option><option>Two Bedroom Residence</option><option>Three Bedroom Residence</option></select></div>
     <div class="row2"><div class="field"><label>Day</label><select name="day"><option>Saturday</option><option>Sunday</option><option>Weekday</option></select></div>
