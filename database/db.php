@@ -1,6 +1,6 @@
 <?php
 // Database + site settings. On a live server set these as environment variables.
-define('WA_NUMBER', getenv('WA_NUMBER') ?: '919022142587'); // country code + number, no + or spaces
+define('WA_NUMBER', getenv('WA_NUMBER') ?: '917972096750'); // country code + number, no + or spaces
 define('DB_ENABLED', filter_var(getenv('DB_ENABLED') ?: 'true', FILTER_VALIDATE_BOOLEAN));
 define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
 define('DB_USER', getenv('DB_USER') ?: 'root');
