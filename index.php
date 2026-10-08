@@ -152,7 +152,7 @@ require __DIR__ . '/header.php';
   <div class="head"><h2>50+ amenities, <em>and more</em></h2><p>Quietly woven into the estate — for wellness, for leisure and for everyday ease.</p></div>
   <div class="feat">
   <div>
-    <img src="assets/images/pool.jpg" alt="The Pools">
+    <img src="assets/images/pool.png" alt="The Pools">
     <div class="feat-text">
       <h3>The Pools</h3>
       <small>For men, women &amp; children</small>

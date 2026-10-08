@@ -722,13 +722,38 @@ nav {
     background: $sand;
     aspect-ratio: 1 / .82;
     overflow: hidden;
+    cursor: pointer;
 
     img {
         @include img-cover(1.2s);
+        transition: transform 0.6s ease;
     }
 
-    &:hover img {
-        transform: scale(1.04);
+    // Golden overlay
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(184, 149, 90, 0.42) 0%,
+            rgba(216, 185, 124, 0.28) 50%,
+            rgba(160, 125, 65, 0.42) 100%
+        );
+        opacity: 1;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 0;
+        }
+
+        img {
+            transform: scale(1.05);
+        }
     }
 }
 
@@ -779,6 +804,14 @@ nav {
     &:hover {
         transform: translateY(-6px);
         box-shadow: 0 24px 50px -24px rgba(0, 0, 0, .35);
+
+        .ph::after {
+            opacity: 0;
+        }
+
+        .ph img {
+            transform: scale(1.05);
+        }
     }
 
     .ph {
@@ -787,6 +820,8 @@ nav {
     }
 
     .tag {
+        position: absolute;
+        z-index: 2;
         top: 20px;
         bottom: auto;
         left: 20px;
@@ -1005,6 +1040,7 @@ nav {
         height: 230px;
         border: 1px solid $line-dark;
         overflow: hidden;
+        cursor: pointer;
         background: #1f1b15; // fallback while image loads
 
         // the image
@@ -1014,21 +1050,45 @@ nav {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s;
+            transition: transform 0.8s ease;
             z-index: 0;
         }
 
-        // gradient overlay above the image
+        // Golden overlay
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(184, 149, 90, 0.42) 0%,
+                rgba(216, 185, 124, 0.28) 50%,
+                rgba(160, 125, 65, 0.42) 100%
+            );
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        // gradient overlay above the image for text readability
         &::after {
             content: "";
             position: absolute;
             inset: 0;
             background: linear-gradient(transparent 40%, rgba(0, 0, 0, .75));
-            z-index: 1;
+            pointer-events: none;
+            z-index: 2;
         }
 
-        &:hover img {
-            transform: scale(1.05);
+        &:hover {
+            &::before {
+                opacity: 0;
+            }
+
+            img {
+                transform: scale(1.05);
+            }
         }
     }
 
@@ -1039,7 +1099,7 @@ nav {
         right: 0;
         bottom: 0;
         padding: 22px;
-        z-index: 2;
+        z-index: 3;
     }
 
     h3 {
@@ -1109,10 +1169,34 @@ nav {
 
     img {
         @include img-cover;
+        transition: transform 0.6s ease;
     }
 
-    &:hover img {
-        transform: scale(1.07);
+    // Golden overlay
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(184, 149, 90, 0.42) 0%,
+            rgba(216, 185, 124, 0.28) 50%,
+            rgba(160, 125, 65, 0.42) 100%
+        );
+        opacity: 1;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 0;
+        }
+
+        img {
+            transform: scale(1.07);
+        }
     }
 
     &.hidden {
@@ -1128,7 +1212,8 @@ nav {
         letter-spacing: .25em;
         text-transform: uppercase;
         opacity: 0;
-        transition: .4s;
+        transition: opacity .4s;
+        z-index: 2;
     }
 
     &:hover span {
@@ -1603,5 +1688,33 @@ footer {
     .reveal-right {
         opacity: 1;
         transform: none;
+    }
+}
+
+// ==========================================================================
+// Golden overlay utility (for any custom image wrappers)
+// ==========================================================================
+.golden-overlay,
+.img-gold {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(184, 149, 90, 0.42) 0%,
+            rgba(216, 185, 124, 0.28) 50%,
+            rgba(160, 125, 65, 0.42) 100%
+        );
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &:hover::after {
+        opacity: 0;
     }
 }
