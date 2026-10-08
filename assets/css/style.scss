@@ -127,6 +127,16 @@ img {
     display: block;
 }
 
+@mixin gold-overlay($z: 1) {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($gold, .35);
+    transition: opacity .5s ease;
+    z-index: $z;
+    pointer-events: none;
+}
+
 button,
 input,
 select,
@@ -540,7 +550,7 @@ nav {
 }
 
 .card {
-    background: rgb(165 161 154 / 6%);
+    background: rgba(165, 161, 154, .06);
     border: 1px solid #ffffff59;
     padding: 34px;
     backdrop-filter: blur(12px);
@@ -727,8 +737,16 @@ nav {
         @include img-cover(1.2s);
     }
 
+    &::after {
+        @include gold-overlay(1);
+    }
+
     &:hover img {
         transform: scale(1.04);
+    }
+
+    &:hover::after {
+        opacity: 0;
     }
 }
 
@@ -1111,8 +1129,16 @@ nav {
         @include img-cover;
     }
 
+    &::after {
+        @include gold-overlay(1);
+    }
+
     &:hover img {
         transform: scale(1.07);
+    }
+
+    &:hover::after {
+        opacity: 0;
     }
 
     &.hidden {
@@ -1129,6 +1155,7 @@ nav {
         text-transform: uppercase;
         opacity: 0;
         transition: .4s;
+        z-index: 2;
     }
 
     &:hover span {
