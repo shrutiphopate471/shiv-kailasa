@@ -145,20 +145,152 @@ $('#gg').innerHTML = gdata.map((g, i) => `
 `).join('');
 
 /* 6/7/8. Modal + lightbox */
-let cur = [], idx = 0; const lb = $('#lb'), li = $('#li');
-const show = () => { li.src = cur[idx]; $('#lc').textContent = (idx + 1) + ' / ' + cur.length };
-const open = (set, i = 0) => { cur = set; idx = i; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden' };
-const close = () => { lb.classList.remove('open'); document.body.style.overflow = '' };
-const step = d => { idx = (idx + d + cur.length) % cur.length; show() };
-li.onerror = () => { li.onerror = null; li.src = ph('Add photo', '#ddd5c0') };
-$$('[data-gal]').forEach(b => b.addEventListener('click', () => { li.onerror = () => { li.onerror = null; li.src = ph('Add photo', '#ddd5c0') }; open(sets[b.dataset.gal]) }));
-$$('.gi').forEach(g => g.onclick = () => {
-  const vis = $$('.gi:not(.hidden)'); cur = vis.map(v => sets.g[v.dataset.i]);
-  cur = vis.map(v => $('img', v).src); open(cur, vis.indexOf(g));
+
+/* =========================
+   RESIDENCE LIGHTBOX
+========================= */
+
+let cur = [];
+let idx = 0;
+
+const lb = $('#lb');
+const li = $('#li');
+const lc = $('#lc');
+
+const show = () => {
+  if (!cur.length) return;
+
+  li.src = cur[idx];
+
+  if (lc) {
+    lc.textContent = `${idx + 1} / ${cur.length}`;
+  }
+};
+
+const open = (set, i = 0) => {
+  if (!set || !set.length) return;
+
+  cur = set;
+  idx = i;
+
+  show();
+
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+const close = () => {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+const step = (direction) => {
+  if (!cur.length) return;
+
+  idx = (idx + direction + cur.length) % cur.length;
+  show();
+};
+
+
+/* Broken image fallback */
+li.onerror = () => {
+  li.onerror = null;
+  li.src = ph('Add photo', '#ddd5c0');
+};
+
+
+/* Residence buttons */
+$$('[data-gal]').forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    const galleryName = button.dataset.gal;
+    const galleryImages = sets[galleryName];
+
+    if (!galleryImages || !galleryImages.length) {
+      console.warn(`Gallery "${galleryName}" not found.`);
+      return;
+    }
+
+    open(galleryImages, 0);
+  });
+
 });
-$('#lx').onclick = close; $('#lp').onclick = () => step(-1); $('#ln').onclick = () => step(1);
-lb.onclick = e => { if (e.target === lb) close() };
-addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1) });
+
+
+/* Main gallery images */
+$$('.gi').forEach(item => {
+
+  item.addEventListener('click', () => {
+
+    const visibleItems = $$('.gi:not(.hidden)');
+
+    const images = visibleItems.map(item => {
+      return $('img', item).src;
+    });
+
+    const currentIndex = visibleItems.indexOf(item);
+
+    open(images, currentIndex);
+  });
+
+});
+
+
+/* Lightbox buttons */
+$('#lx').addEventListener('click', close);
+
+$('#lp').addEventListener('click', () => {
+  step(-1);
+});
+
+$('#ln').addEventListener('click', () => {
+  step(1);
+});
+
+
+/* Close when clicking outside image */
+lb.addEventListener('click', e => {
+
+  if (e.target === lb) {
+    close();
+  }
+
+});
+
+
+/* Keyboard controls */
+addEventListener('keydown', e => {
+
+  if (!lb.classList.contains('open')) return;
+
+  if (e.key === 'Escape') {
+    close();
+  }
+
+  if (e.key === 'ArrowLeft') {
+    step(-1);
+  }
+
+  if (e.key === 'ArrowRight') {
+    step(1);
+  }
+
+});
+// let cur = [], idx = 0; const lb = $('#lb'), li = $('#li');
+// const show = () => { li.src = cur[idx]; $('#lc').textContent = (idx + 1) + ' / ' + cur.length };
+// const open = (set, i = 0) => { cur = set; idx = i; show(); lb.classList.add('open'); document.body.style.overflow = 'hidden' };
+// const close = () => { lb.classList.remove('open'); document.body.style.overflow = '' };
+// const step = d => { idx = (idx + d + cur.length) % cur.length; show() };
+// li.onerror = () => { li.onerror = null; li.src = ph('Add photo', '#ddd5c0') };
+// $$('[data-gal]').forEach(b => b.addEventListener('click', () => { li.onerror = () => { li.onerror = null; li.src = ph('Add photo', '#ddd5c0') }; open(sets[b.dataset.gal]) }));
+// $$('.gi').forEach(g => g.onclick = () => {
+//   const vis = $$('.gi:not(.hidden)'); cur = vis.map(v => sets.g[v.dataset.i]);
+//   cur = vis.map(v => $('img', v).src); open(cur, vis.indexOf(g));
+// });
+// $('#lx').onclick = close; $('#lp').onclick = () => step(-1); $('#ln').onclick = () => step(1);
+// lb.onclick = e => { if (e.target === lb) close() };
+// addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1) });
 
 /* 9. Amenity + gallery filters */
 const filter = (bar, items) => $$('button', $(bar)).forEach(b => b.onclick = () => {
@@ -212,3 +344,5 @@ document.addEventListener('input', function (e) {
   if (!e.target.matches('input[name="phone"]')) return;
   e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
 });
+
+

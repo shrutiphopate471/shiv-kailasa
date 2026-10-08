@@ -112,22 +112,181 @@ require __DIR__ . '/header.php';
   </div>
 </div></div></section>
 
+
 <!-- Residences -->
-<section class="light2 section-lg" id="residences"><div class="wrap">
-  <div class="eyebrow mute" style="color:var(--gold)">II &nbsp; The residences</div>
-  <div class="head" style="color:var(--ink)"><h2 style="color:var(--ink)">Homes <em>crafted for life</em></h2><p style="color:#6f695d">Light-filled plans with generous living rooms, private bedrooms and views across open greens.</p></div>
-  <div class="res">
-    <article class="rcard reveal"><div class="ph" data-gal="r2"><img src="assets/images/IMG_6637.JPG.jpg" alt="2 BHK" onerror="this.style.display='none'"></div>
-      <div class="rbody"><div class="eyebrow">The signature</div><h3>Two Bedroom Residence</h3><p>Composed living and dining with two private bedrooms — a first home or a considered investment.</p>
-      <div class="facts"><div><small>Carpet area</small><b>[— sq. ft.]</b></div><div><small>Bedrooms</small><b>Two</b></div><div><small>Price</small><b>On request</b></div></div>
-      <div class="acts"><button class="btn ghost" data-gal="r2">View photos</button><a href="#contact" class="btn" data-cfg="Two Bedroom Residence">Enquire now</a></div></div></article>
-    <article class="rcard reveal"><div class="ph" data-gal="r3"><img src="assets/images/IMG_6638.JPGnew6.jpg" alt="3 BHK" onerror="this.style.display='none'"><span class="tag" style="background:#2a2620">Most sought after</span></div>
-      <div class="rbody"><div class="eyebrow">The grand</div><h3>Three Bedroom Residence</h3><p>Grand living spaces and three bedrooms, with garden-facing homes for those who want the view.</p>
-      <div class="facts"><div><small>Carpet area</small><b>[— sq. ft.]</b></div><div><small>Bedrooms</small><b>Three</b></div><div><small>Price</small><b>On request</b></div></div>
-      <div class="acts"><button class="btn ghost" data-gal="r3">View photos</button><a href="#contact" class="btn" data-cfg="Three Bedroom Residence">Enquire now</a></div></div></article>
+<section class="light2 section-lg" id="residences">
+  <div class="wrap">
+
+    <div class="eyebrow mute" style="color:var(--gold)">
+      II &nbsp; The residences
+    </div>
+
+    <div class="head" style="color:var(--ink)">
+      <h2 style="color:var(--ink)">
+        Homes <em>crafted for life</em>
+      </h2>
+      <p style="color:#6f695d">
+        Light-filled plans with generous living rooms, private bedrooms and views across open greens.
+      </p>
+    </div>
+
+    <div class="res">
+
+      <!-- 2 BHK -->
+      <article class="rcard reveal">
+
+        <div class="ph" data-gal="r2">
+          <img
+            src="assets/images/IMG_6637.JPG.jpg"
+            alt="2 BHK Residence"
+            onerror="this.style.display='none'"
+          >
+        </div>
+
+        <div class="rbody">
+          <div class="eyebrow">The signature</div>
+
+          <h3>Two Bedroom Residence</h3>
+
+          <p>
+            Composed living and dining with two private bedrooms —
+            a first home or a considered investment.
+          </p>
+
+          <div class="facts">
+            <div>
+              <small>Carpet area</small>
+              <b>1000 sq. ft.</b>
+            </div>
+
+            <div>
+              <small>Bedrooms</small>
+              <b>Two</b>
+            </div>
+
+            <div>
+              <small>Price</small>
+              <b>On request</b>
+            </div>
+          </div>
+
+          <div class="acts">
+            <button type="button" class="btn ghost" data-gal="r2">
+  View photos
+</button>
+
+            <a
+              href="#contact"
+              class="btn"
+              data-cfg="Two Bedroom Residence"
+            >
+              Enquire now
+            </a>
+          </div>
+        </div>
+
+      </article>
+
+
+      <!-- 3 BHK -->
+      <article class="rcard reveal">
+
+        <div class="ph" data-gal="r3">
+
+          <img
+            src="assets/images/IMG_6638.JPGnew6.jpg"
+            alt="3 BHK Residence"
+            onerror="this.style.display='none'"
+          >
+
+          <span
+            class="tag"
+            style="background:#2a2620"
+          >
+            Most sought after
+          </span>
+
+        </div>
+
+        <div class="rbody">
+
+          <div class="eyebrow">The grand</div>
+
+          <h3>Three Bedroom Residence</h3>
+
+          <p>
+            Grand living spaces and three bedrooms, with garden-facing
+            homes for those who want the view.
+          </p>
+
+          <div class="facts">
+
+            <div>
+              <small>Carpet area</small>
+              <b>1200 sq. ft.</b>
+            </div>
+
+            <div>
+              <small>Bedrooms</small>
+              <b>Three</b>
+            </div>
+
+            <div>
+              <small>Price</small>
+              <b>On request</b>
+            </div>
+
+          </div>
+
+          <div class="acts">
+
+            <button type="button" class="btn ghost" data-gal="r3">
+  View photos
+</button>
+
+            <a
+              href="#contact"
+              class="btn"
+              data-cfg="Three Bedroom Residence"
+            >
+              Enquire now
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- Commercial -->
+    <div class="invest">
+
+      <div>
+
+        <div class="eyebrow">
+          For investors · Kailasa commercial complex
+        </div>
+
+        <div class="serif">
+          Retail and commercial addresses with a built-in catchment
+          of 2,400+ homes.
+        </div>
+
+      </div>
+
+      <a href="#contact" class="btn">
+        Request pricing
+      </a>
+
+    </div>
+
   </div>
-  <div class="invest"><div><div class="eyebrow">For investors · Kailasa commercial complex</div><div class="serif">Retail and commercial addresses with a built-in catchment of 2,400+ homes.</div></div><a href="#contact" class="btn">Request pricing</a></div>
-</div></section>
+</section>
+
+
 
 <!-- Location -->
 <section class="loc section-lg" id="location"><div class="wrap">
@@ -178,6 +337,72 @@ require __DIR__ . '/header.php';
     <div class="am-item" data-c="security"><h4>Parking</h4><p>Dedicated resident and visitor parking</p></div>
   </div>
 </div></section>
+
+<section class="gallery-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="subtitle">Explore Our Spaces</span>
+      <h2>Gallery</h2>
+      <p>
+        Take a glimpse into the thoughtfully designed spaces,
+        beautiful landscapes and lifestyle amenities.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item gallery-large">
+        <img src="assets/images/IMG_4786.PNG" alt="Exterior">
+        <div class="gallery-overlay">
+          <span>Exterior</span>
+          <h3>Beautiful Architecture</h3>
+          <button class="view-btn">↗</button>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/images/IMG_4790.PNG" alt="Interior">
+        <div class="gallery-overlay">
+          <span>Interior</span>
+          <h3>Elegant Living</h3>
+          <button class="view-btn">↗</button>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/images/IMG_4749-MP4-10-08-2026_10_30_AM.png" alt="Landscape">
+        <div class="gallery-overlay">
+          <span>Landscape</span>
+          <h3>Green Spaces</h3>
+          <button class="view-btn">↗</button>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="assets/images/IMG_4797.PNG" alt="Clubhouse">
+        <div class="gallery-overlay">
+          <span>Amenities</span>
+          <h3>The Clubhouse</h3>
+          <button class="view-btn">↗</button>
+        </div>
+      </div>
+
+      <div class="gallery-item gallery-tall">
+        <img src="assets/images/IMG_4785.PNG" alt="Garden">
+        <div class="gallery-overlay">
+          <span>Landscape</span>
+          <h3>Central Green</h3>
+          <button class="view-btn">↗</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 <!-- Gallery
 <section class="gal section-lg" id="gallery"><div class="wrap">

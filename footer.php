@@ -13,8 +13,22 @@
 
 <!-- <a class="wa" id="wa" target="_blank" rel="noopener" href="#">WhatsApp</a> -->
 <button class="totop" id="top" aria-label="Back to top">&uarr;</button>
+<!-- Gallery Lightbox -->
+<!-- <div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
 
+  <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+
+  <div class="lightbox-content">
+    <img id="lightboxImage" src="" alt="Residence">
+  </div>
+
+  <button class="lightbox-next" id="lightboxNext">&#10095;</button>
+</div> -->
 <script>window.WA_NUMBER='<?= WA_NUMBER ?>';</script>
 <script src="assets/js/script.js"></script>
+
+
+
 </body>
 </html>
