@@ -26,7 +26,24 @@
   <button class="lightbox-next" id="lightboxNext">&#10095;</button>
 </div> -->
 <script>window.WA_NUMBER='<?= WA_NUMBER ?>';</script>
-<script src="assets/js/script.js"></script>
+<script src="assets/js/script.js?v=<?= @filemtime(__DIR__ . '/assets/js/script.js') ?: time() ?>"></script>
+
+<!-- lightGallery (Gallery section) -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2/lightgallery.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2/plugins/zoom/lg-zoom.umd.js"></script>
+<script>
+(function () {
+    var container = document.getElementById('galleryGrid');
+    if (!container || typeof lightGallery !== 'function') return;
+
+    lightGallery(container, {
+        selector: '.gallery-item',
+        plugins: [lgZoom],
+        speed: 400,
+        download: false,
+    });
+})();
+</script>
 
 
 

@@ -8,6 +8,7 @@ define('DB_PASS', getenv('DB_PASS') ?: '');
 define('DB_NAME', getenv('DB_NAME') ?: 'shiv_kailasa');
 define('DB_SSL', filter_var(getenv('DB_SSL') ?: 'false', FILTER_VALIDATE_BOOLEAN)); // true for cloud MySQL (TiDB, Aiven)
 define('DB_PORT', (int)(getenv('DB_PORT') ?: 3306));
+define('ADMIN_PASSWORD', getenv('ADMIN_PASSWORD') ?: 'shivkailasa2026'); // change this before going live
 
 function db_connect(): mysqli {
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
